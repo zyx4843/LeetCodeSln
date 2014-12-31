@@ -32,22 +32,72 @@ struct TreeNode {
 class Solution {
 public:
 	vector<TreeNode *> generateTrees(int n) {
-		vector<vector<TreeNode *>> vec_tree(n + 1);
-		vec_tree[1].push_back(1);
-		for (int i = 2; i <= n; ++i)
+		if (n < 1)
 		{
-			for (int j = 0; j < i; ++j)
+			vector<TreeNode *> ret_tree;
+			ret_tree.push_back(NULL);
+			return ret_tree;
+		}
+
+		return RecursionTrees(1, n);
+	}
+private:
+	vector<TreeNode *> RecursionTrees(int start, int end)
+	{
+		vector<TreeNode *> vec_tree;
+		if (start == end)
+		{
+			TreeNode *pNode = new TreeNode(start);
+			vec_tree.push_back(pNode);
+			return vec_tree;
+		}
+
+		vector<TreeNode *> vec_end = RecursionTrees(start, end - 1);
+		for (int i = 0; i < vec_end.size(); ++i)
+		{
+			TreeNode *pNode = new TreeNode(end);
+			pNode->left = vec_end[i];
+			vec_tree.push_back(pNode);
+		}
+
+		vector<TreeNode *> vec_start = RecursionTrees(start + 1, end);
+		for (int i = 0; i < vec_start.size(); ++i)
+		{
+			TreeNode *pNode = new TreeNode(start);
+			pNode->right = vec_start[i];
+			vec_tree.push_back(pNode);
+		}
+
+		for (int i = start + 1; i < end; ++i)
+		{
+			vector<TreeNode *> vec_left = RecursionTrees(start, i - 1);
+			vector<TreeNode *> vec_right = RecursionTrees(i + 1, end);
+			for (int left = 0; left < vec_left.size(); ++left)
 			{
-				vec_num_tree[i] += vec_num_tree[j] * vec_num_tree[i - j - 1];
+				for (int right = 0; right < vec_right.size(); ++right)
+				{
+					TreeNode *pNode = new TreeNode(i);
+					pNode->left = vec_left[left];
+					pNode->right = vec_right[right];
+					vec_tree.push_back(pNode);
+				}
 			}
 		}
 
-		return vec_num_tree[n];
+		return vec_tree;
 	}
 };
 
 int _tmain(int argc, _TCHAR* argv[])
 {
+	int n = 3;
+	if ( argc > 1) {
+		n = _wtoi(argv[1]);
+	}
+
+	Solution so;
+	vector<TreeNode *> trees = so.generateTrees(n);
+
 	return 0;
 }
 
