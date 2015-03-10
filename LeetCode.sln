@@ -147,6 +147,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Jump_Game", "Jump_Game\Jump
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Spiral_Matrix", "Spiral_Matrix\Spiral_Matrix.vcproj", "{DBD72F94-A63E-4A4E-832A-DA4351FB6279}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Maximum_Subarray", "Maximum_Subarray\Maximum_Subarray.vcproj", "{0B42000E-CA19-4553-A4E8-1EFCE515D5FE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -445,6 +447,10 @@ Global
 		{DBD72F94-A63E-4A4E-832A-DA4351FB6279}.Debug|Win32.Build.0 = Debug|Win32
 		{DBD72F94-A63E-4A4E-832A-DA4351FB6279}.Release|Win32.ActiveCfg = Release|Win32
 		{DBD72F94-A63E-4A4E-832A-DA4351FB6279}.Release|Win32.Build.0 = Release|Win32
+		{0B42000E-CA19-4553-A4E8-1EFCE515D5FE}.Debug|Win32.ActiveCfg = Debug|Win32
+		{0B42000E-CA19-4553-A4E8-1EFCE515D5FE}.Debug|Win32.Build.0 = Debug|Win32
+		{0B42000E-CA19-4553-A4E8-1EFCE515D5FE}.Release|Win32.ActiveCfg = Release|Win32
+		{0B42000E-CA19-4553-A4E8-1EFCE515D5FE}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
